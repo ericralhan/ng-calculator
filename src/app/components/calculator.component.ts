@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CalculatorService } from '../services/calculator.service';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,8 @@ export class CalculatorComponent {
   operatorAssigned = false;
   resultDisplay: number;
 
+  constructor(private calculatorService: CalculatorService) { }
+
   entered(input) {
     this.strNum += input;
     this.display += input;
@@ -24,6 +27,7 @@ export class CalculatorComponent {
     this.result = +this.strNum;
     this.resultDisplay = this.result;
   }
+
   operate(input) {
     this.display += input;
     if (this.operatorAssigned) {
@@ -35,22 +39,19 @@ export class CalculatorComponent {
     this.strNum = '';
     this.isOpClicked = false;
   }
+
   calculate(input: number) {
     this.resultDisplay = this.result;
-    switch (this.operator) {
-      case '+': this.resultDisplay += input; break;
-      case '-': this.resultDisplay -= input; break;
-      case '*': this.resultDisplay *= input; break;
-      case '/': this.resultDisplay /= input; break;
-      default: alert('Not a valid Operator'); break;
-    }
+    this.resultDisplay = this.calculatorService.performOperation(this.operator, this.resultDisplay, input);
   }
+
   equalsTo() {
     this.result = this.resultDisplay;
     this.operator = '';
     this.strNum = '';
     this.display = this.result.toString();
   }
+
   clearAll() {
     this.display = '';
     this.isOpClicked = false;

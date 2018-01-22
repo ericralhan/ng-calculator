@@ -2,13 +2,15 @@ import { TestBed, async } from '@angular/core/testing';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatButtonModule, MatCardModule } from '@angular/material';
 import { CalculatorComponent } from './calculator.component';
+import { CalculatorService } from '../services/calculator.service';
 
-describe('AppComponent', () => {
+describe('CalculatorComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         CalculatorComponent
       ],
+      providers: [CalculatorService],
       imports: [
         MatCardModule
       ]
