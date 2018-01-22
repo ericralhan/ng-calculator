@@ -1,6 +1,11 @@
 # Calculator
 Calculator with basic operations in Angular 4.
 
+# Application Structure
+Calculator has a single module called AppModule. It imports all the necessary dependencies for the component.
+CalculatorComponent supports calculator features. It relies upon CalculatorService to perform operations.
+The application is structured in a way that it can be easily extended. Components and Services are separated to support standard Angular App structure.
+
 # Install the project
 npm install
 
