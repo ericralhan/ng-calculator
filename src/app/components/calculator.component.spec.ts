@@ -1,13 +1,13 @@
 import { TestBed, async } from '@angular/core/testing';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatButtonModule, MatCardModule } from '@angular/material';
-import { AppComponent } from './app.component';
+import { CalculatorComponent } from './calculator.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        CalculatorComponent
       ],
       imports: [
         MatCardModule
@@ -16,19 +16,19 @@ describe('AppComponent', () => {
   }));
 
   it('should create the app', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.createComponent(CalculatorComponent);
     const app = fixture.debugElement.componentInstance;
 
     expect(app).toBeTruthy();
   }));
   it(`display should be blank at the start`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.createComponent(CalculatorComponent);
     const app = fixture.debugElement.componentInstance;
 
     expect(app.display).toEqual('');
   }));
   it(`display should change as per the entered value`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.createComponent(CalculatorComponent);
     const app = fixture.debugElement.componentInstance;
 
     app.entered('1+3+4+5');
@@ -36,7 +36,7 @@ describe('AppComponent', () => {
     expect(app.display).toEqual('1+3+4+5');
   }));
   it(`operate feature should be applied`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.createComponent(CalculatorComponent);
     const app = fixture.debugElement.componentInstance;
 
     app.operate('+');
@@ -44,7 +44,7 @@ describe('AppComponent', () => {
     expect(app.display).toEqual('+');
   }));
   it(`calculate feature should be applied to add numbers`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.createComponent(CalculatorComponent);
     const app = fixture.debugElement.componentInstance;
 
     app.entered(15);
@@ -54,7 +54,7 @@ describe('AppComponent', () => {
     expect(app.resultDisplay).toEqual(26);
   }));
   it(`calculate feature should be applied to subtract numbers`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.createComponent(CalculatorComponent);
     const app = fixture.debugElement.componentInstance;
 
     app.entered(15);
@@ -64,7 +64,7 @@ describe('AppComponent', () => {
     expect(app.resultDisplay).toEqual(4);
   }));
   it(`calculate feature should be applied to mulitply numbers`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.createComponent(CalculatorComponent);
     const app = fixture.debugElement.componentInstance;
 
     app.entered(15);
@@ -74,7 +74,7 @@ describe('AppComponent', () => {
     expect(app.resultDisplay).toEqual(165);
   }));
   it(`calculate feature should be applied to divide numbers`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.createComponent(CalculatorComponent);
     const app = fixture.debugElement.componentInstance;
 
     app.entered(15);
@@ -84,7 +84,7 @@ describe('AppComponent', () => {
     expect(app.resultDisplay).toEqual(3);
   }));
   it(`equals feature should disply the result`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.createComponent(CalculatorComponent);
     const app = fixture.debugElement.componentInstance;
 
     app.entered(15);
@@ -98,7 +98,7 @@ describe('AppComponent', () => {
     expect(app.operator).toEqual('');
   }));
   it(`clearAll feature should reset the app`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.createComponent(CalculatorComponent);
     const app = fixture.debugElement.componentInstance;
 
     app.entered(15);
@@ -114,7 +114,7 @@ describe('AppComponent', () => {
     expect(app.resultDisplay).toEqual(0);
   }));
   it(`entered feature calculates the result if operator is already assigned`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.createComponent(CalculatorComponent);
     const app = fixture.debugElement.componentInstance;
 
     app.entered(15);
@@ -127,7 +127,7 @@ describe('AppComponent', () => {
     expect(app.operatorAssigned).toEqual(true);
   }));
   it(`operate feature assigns result if operator is already assigned`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.createComponent(CalculatorComponent);
     const app = fixture.debugElement.componentInstance;
 
     app.entered(15);
@@ -142,7 +142,7 @@ describe('AppComponent', () => {
     expect(app.operatorAssigned).toEqual(true);
   }));
   it(`calculate feature displays alert for not a valid operator`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.createComponent(CalculatorComponent);
     const app = fixture.debugElement.componentInstance;
 
     spyOn(window, 'alert');

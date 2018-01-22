@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './calculator.component.html',
+  styleUrls: ['./calculator.component.css']
 })
-export class AppComponent {
+export class CalculatorComponent {
   display = '';
   isOpClicked = false;
   result: number;

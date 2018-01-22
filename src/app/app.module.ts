@@ -2,18 +2,19 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatButtonModule, MatCardModule } from '@angular/material';
 
-import { AppComponent } from './app.component';
+import { CalculatorComponent } from './components/calculator.component';
+import { CalculatorService } from './services/calculator.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    CalculatorComponent
   ],
   imports: [
     BrowserModule,
     MatCardModule,
     MatButtonModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [CalculatorService],
+  bootstrap: [CalculatorComponent]
 })
 export class AppModule { }
