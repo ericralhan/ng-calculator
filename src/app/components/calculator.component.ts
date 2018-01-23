@@ -12,15 +12,18 @@ import { CalculatorService } from '../services/calculator.service';
 export class CalculatorComponent {
   display = '';
   isOpClicked = false;
-  result: number;
   strNum = '';
   operator: string;
   operatorAssigned = false;
-  resultDisplay: number;
+  result: number;
 
-  constructor(private calculatorService: CalculatorService) { }
+  public constructor(private calculatorService: CalculatorService) {}
 
-  entered(input) {
+  /**
+   * This method is called when user inputs operands
+   * @param input: operand entered by user
+   */
+  private entered(input): void {
     this.strNum += input;
     this.display += input;
     if (this.operatorAssigned) {
@@ -28,14 +31,14 @@ export class CalculatorComponent {
       return;
     }
     this.result = +this.strNum;
-    this.resultDisplay = this.result;
   }
 
-  operate(input) {
+  /**
+   * This method is called when user inputs an operator
+   * @param input: operator entered by user
+   */
+  private operate(input): void {
     this.display += input;
-    if (this.operatorAssigned) {
-      this.result = this.resultDisplay;
-    }
 
     this.operatorAssigned = true;
     this.operator = input;
@@ -43,24 +46,35 @@ export class CalculatorComponent {
     this.isOpClicked = false;
   }
 
-  calculate(input: number) {
-    this.resultDisplay = this.result;
-    this.resultDisplay = this.calculatorService.performOperation(this.operator, this.resultDisplay, input);
+  /**
+   * This method is called when an expression can be calculated
+   * @param input: second or later operand entered by user
+   */
+  private calculate(input: number): void {
+    this.result = this.calculatorService.performOperation(
+      this.operator,
+      this.result,
+      input
+    );
   }
 
-  equalsTo() {
-    this.result = this.resultDisplay;
+  /**
+   * This method assigns result to display, when equalsTo operator is clicked
+   */
+  private equalsTo(): void {
     this.operator = '';
     this.strNum = '';
     this.display = this.result.toString();
   }
 
-  clearAll() {
+  /**
+   * This method clears the calculator, when Cancel is clicked
+   */
+  private clearAll(): void {
     this.display = '';
     this.isOpClicked = false;
     this.strNum = '';
     this.operatorAssigned = false;
-    this.resultDisplay = 0;
+    this.result = 0;
   }
-
 }

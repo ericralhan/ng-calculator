@@ -53,7 +53,7 @@ describe('CalculatorComponent', () => {
     app.operate('+');
     app.calculate(11);
 
-    expect(app.resultDisplay).toEqual(26);
+    expect(app.result).toEqual(26);
   }));
   it(`calculate feature should be applied to subtract numbers`, async(() => {
     const fixture = TestBed.createComponent(CalculatorComponent);
@@ -63,7 +63,7 @@ describe('CalculatorComponent', () => {
     app.operate('-');
     app.calculate(11);
 
-    expect(app.resultDisplay).toEqual(4);
+    expect(app.result).toEqual(4);
   }));
   it(`calculate feature should be applied to mulitply numbers`, async(() => {
     const fixture = TestBed.createComponent(CalculatorComponent);
@@ -73,7 +73,7 @@ describe('CalculatorComponent', () => {
     app.operate('*');
     app.calculate(11);
 
-    expect(app.resultDisplay).toEqual(165);
+    expect(app.result).toEqual(165);
   }));
   it(`calculate feature should be applied to divide numbers`, async(() => {
     const fixture = TestBed.createComponent(CalculatorComponent);
@@ -83,7 +83,7 @@ describe('CalculatorComponent', () => {
     app.operate('/');
     app.calculate(5);
 
-    expect(app.resultDisplay).toEqual(3);
+    expect(app.result).toEqual(3);
   }));
   it(`equals feature should disply the result`, async(() => {
     const fixture = TestBed.createComponent(CalculatorComponent);
@@ -94,7 +94,6 @@ describe('CalculatorComponent', () => {
     app.calculate(5);
     app.equalsTo();
 
-    expect(app.resultDisplay).toEqual(3);
     expect(app.result).toEqual(3);
     expect(app.strNum).toEqual('');
     expect(app.operator).toEqual('');
@@ -113,7 +112,7 @@ describe('CalculatorComponent', () => {
     expect(app.isOpClicked).toEqual(false);
     expect(app.strNum).toEqual('');
     expect(app.operatorAssigned).toEqual(false);
-    expect(app.resultDisplay).toEqual(0);
+    expect(app.result).toEqual(0);
   }));
   it(`entered feature calculates the result if operator is already assigned`, async(() => {
     const fixture = TestBed.createComponent(CalculatorComponent);
@@ -123,7 +122,7 @@ describe('CalculatorComponent', () => {
     app.operate('/');
     app.entered(5);
 
-    expect(app.resultDisplay).toEqual(3);
+    expect(app.result).toEqual(3);
     expect(app.display).toEqual('15/5');
     expect(app.isOpClicked).toEqual(false);
     expect(app.operatorAssigned).toEqual(true);
@@ -137,7 +136,6 @@ describe('CalculatorComponent', () => {
     app.entered(5);
     app.operate('+');
 
-    expect(app.resultDisplay).toEqual(3);
     expect(app.result).toEqual(3);
     expect(app.display).toEqual('15/5+');
     expect(app.isOpClicked).toEqual(false);
