@@ -10,12 +10,12 @@ import { CalculatorService } from '../services/calculator.service';
   styleUrls: ['./calculator.component.css']
 })
 export class CalculatorComponent {
-  display = '';
-  isOpClicked = false;
-  strNum = '';
-  operator: string;
-  operatorAssigned = false;
-  result: number;
+  private display = '';
+  private isOpClicked = false;
+  private strNum = '';
+  private operator: string;
+  private operatorAssigned = false;
+  private result: number;
 
   public constructor(private calculatorService: CalculatorService) {}
 

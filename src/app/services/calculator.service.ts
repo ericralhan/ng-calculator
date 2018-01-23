@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 /**
  * Service for calculator operations.
  */
-
 @Injectable()
 export class CalculatorService {
 
@@ -20,5 +19,4 @@ export class CalculatorService {
         }
         return l;
     }
-
 }
