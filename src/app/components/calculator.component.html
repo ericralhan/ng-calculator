@@ -1,6 +1,6 @@
 <md-card>
 <div class="display">{{display}}</div>
-<div class="result">{{resultDisplay}}</div>
+<div class="result">{{result}}</div>
 <div class="row">
   <button md-raised-button class="button" (click)="entered('1'); isOpClicked = true">1</button>
   <button md-raised-button class="button" (click)="entered('2'); isOpClicked = true">2</button>
@@ -28,7 +28,7 @@
   <button md-raised-button class="button" (click)="entered('.'); isOpClicked = true">.</button>
   <button md-raised-button class="button" (click)="clearAll()">C</button>
 </div>
-<div class="row">
-  <button style="width: 100%;" md-raised-button (click)="equalsTo('=')">=</button>
+<div class="button">
+  <button md-raised-button (click)="equalsTo('=')">=</button>
 </div>
 </md-card>

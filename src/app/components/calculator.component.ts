@@ -7,14 +7,14 @@ import { CalculatorService } from '../services/calculator.service';
 @Component({
   selector: 'app-calc',
   templateUrl: './calculator.component.html',
-  styleUrls: ['./calculator.component.css']
+  styleUrls: ['./calculator.component.less']
 })
 export class CalculatorComponent {
   private display = '';
   private isOpClicked = false;
   private strNum = '';
-  private operator: string;
   private operatorAssigned = false;
+  private operator: string;
   private result: number;
 
   public constructor(private calculatorService: CalculatorService) {}
